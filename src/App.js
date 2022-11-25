@@ -6,7 +6,6 @@ import { useState } from 'react';
 function App() {
   const [pokemon, setpokemon] = useState('')
   const [pokemonD, setPokemonD] = useState({ sprites: { front_default: null } })
-
   const onChangeFn = (event) => {
     setpokemon(event.target.value)
   }
@@ -26,10 +25,33 @@ function App() {
 
   return (
     <>
+      <h1>pokemon</h1>
       <div className="app">
         <input type="text" value={pokemon} onChange={onChangeFn} />
         <button type="button" className="btn btn-light" onClick={onClicsFn}>buscar</button>
-        <img src={pokemonD.sprites.front_default}></img>
+        <br />
+        <img src={pokemonD.sprites.front_default} className="imagen" />
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">experiencia</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">altura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{pokemonD.order}</th>
+              <td>{pokemonD.base_experience}</td>
+              <td>{pokemonD.name}</td>
+              <td>{pokemonD.height}</td>
+
+
+            </tr>
+
+          </tbody>
+        </table>
 
       </div>
     </>
